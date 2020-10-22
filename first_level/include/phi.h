@@ -1,5 +1,5 @@
 #ifndef _H_PHI_
-#ifndef _H_PHI_
+#define _H_PHI_
 
 #include <stdio.h>
 

@@ -11,6 +11,6 @@ double phi ( void)	{
 
 int main_func ( int argc, char ** argv)	{
 	
-	printf ("%f\n", phi());
+	printf ("%lf\n", phi());
 	return 0;
 }

@@ -10,9 +10,9 @@ void print_usage ( const char * s, int ex_code)	{
 void check_args ( int argc, char ** argv, const char * usage)	{
 #ifndef PHI
 	if ( argc == 1)						print_usage ( usage, 1);
-#endif
-	
 	if ( !strcmp ( argv[1], "--help"))	print_usage ( usage, 0);
+#endif
+
 
 #ifdef LONG_WORD
 	if ( argc < 3)						print_usage ( usage, 1);
