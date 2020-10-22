@@ -5,7 +5,11 @@
 #include "sum.h"
 #endif
 
-#if defined(LONG_WORD)
+#ifdef LONG_WORD
+#include "long_word.h"
+#endif
+
+#ifdef ASCI_FREQ
 #include "long_word.h"
 #endif
 
@@ -22,6 +26,12 @@ const char * usage =
 "./long_word [mode] [args or 'words']\n\
 mode : -f : read from a file\n\
        -w : read args between ''";
+
+#elif defined(ASCI_FREQ)
+
+const char * usage = 
+"./asci_freq pathname";
+
 #else
 
 const char * usage = "No help";

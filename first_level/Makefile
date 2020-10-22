@@ -11,6 +11,9 @@ MAIN=${SRC}main.c ${UTILS}common.c
 
 all: sum_all sum_odd_oven long_word
 
+asci_freq: ${MAIN} ${SRC}asci_freq.c ${UTILS}file.c
+	${CC} ${CFLAGS} -DASCI_FREQ=1 -o ${BIN}$@ $^ ${INC}
+
 long_word: ${MAIN} ${SRC}long_word.c ${UTILS}file.c
 	${CC} ${CFLAGS} -DLONG_WORD=1 -o ${BIN}$@ $^ ${INC}
 
