@@ -9,7 +9,7 @@ double phi ( void)	{
 	return (double)n2/n1;
 }
 
-int main_func (void)	{
+int main_func ( int argc, char ** argv)	{
 	
 	printf ("%f\n", phi());
 	return 0;

@@ -11,6 +11,12 @@ MAIN=${SRC}main.c ${UTILS}common.c
 
 all: sum_all sum_odd_oven long_word
 
+phi: ${MAIN} ${SRC}phi.c ${UTILS}file.c
+	${CC} ${CFLAGS} -DPHI=1 -o ${BIN}$@ $^ ${INC}
+
+prime: ${MAIN} ${SRC}prime.c ${UTILS}file.c
+	${CC} ${CFLAGS} -DPRIME=1 -o ${BIN}$@ $^ ${INC}
+
 asci_freq: ${MAIN} ${SRC}asci_freq.c ${UTILS}file.c
 	${CC} ${CFLAGS} -DASCI_FREQ=1 -o ${BIN}$@ $^ ${INC}
 

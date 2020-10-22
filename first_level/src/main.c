@@ -13,6 +13,14 @@
 #include "long_word.h"
 #endif
 
+#ifdef PRIME
+#include "prime.h"
+#endif
+
+#ifdef PHI
+#include "phi.h"
+#endif
+
 #include "common.h"
 
 
@@ -31,6 +39,11 @@ mode : -f : read from a file\n\
 
 const char * usage = 
 "./asci_freq pathname";
+
+#elif defined(PRIME)
+
+const char * usage = 
+"./prime num(integer)";
 
 #else
 
