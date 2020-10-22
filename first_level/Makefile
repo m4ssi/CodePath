@@ -3,18 +3,22 @@ CFLAGS=-Wall -g3
 BIN=./bin/
 OBJ=./obj/
 SRC=./src/
-INC= -I./include
+INC= -I./include/ -I./include/utils
 
-all: utils sum_all sum_odd_oven
+UTILS=./src/utils/
+MAIN=${SRC}main.c ${UTILS}common.c
 
-sum_all: ${SRC}main.c
-	${CC} ${CFLAGS} -DSUM_VERSION=0 -o ${BIN}$@ $< ${OBJ}* ${INC}
 
-sum_odd_oven: ${SRC}main.c
-	${CC} ${CFLAGS} -DSUM_VERSION=1 -o ${BIN}$@ $< ${OBJ}* ${INC}
+all: sum_all sum_odd_oven long_word
 
-utils: ${SRC}utils.c
-	${CC} ${CFLAGS} -c -o ${OBJ}$@.o $^ ${INC}
+long_word: ${MAIN} ${UTILS}file.c
+	${CC} ${CFLAGS} -DLONG_WORD=1 -o ${BIN}$@ $^ ${INC}
+
+sum_all: ${MAIN} ${SRC}sum.c ${UTILS}array.c
+	${CC} ${CFLAGS} -DSUM_VERSION=0 -o ${BIN}$@ $^ ${INC}
+
+sum_odd_oven: ${MAIN} ${SRC}sum.c ${UTILS}array.c
+	${CC} ${CFLAGS} -DSUM_VERSION=1 -o ${BIN}$@ $^ ${INC}
 
 clean:
 	@rm -rf ${OBJ}*
