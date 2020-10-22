@@ -11,7 +11,7 @@ MAIN=${SRC}main.c ${UTILS}common.c
 
 all: sum_all sum_odd_oven long_word
 
-long_word: ${MAIN} ${UTILS}file.c
+long_word: ${MAIN} ${SRC}long_word.c ${UTILS}file.c
 	${CC} ${CFLAGS} -DLONG_WORD=1 -o ${BIN}$@ $^ ${INC}
 
 sum_all: ${MAIN} ${SRC}sum.c ${UTILS}array.c

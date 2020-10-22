@@ -5,8 +5,8 @@
 #include "sum.h"
 #endif
 
-#ifndef SUM_VERSION
-#include "file.h"
+#if defined(LONG_WORD)
+#include "long_word.h"
 #endif
 
 #include "common.h"
@@ -26,20 +26,6 @@ mode : -f : read from a file\n\
 
 const char * usage = "No help";
 
-#endif
-
-
-#ifdef LONG_WORD
-
-int main_func ( int argc, char ** argv)	{
-	
-	
-	char * file = init_file ( argv[1]);
-	read_file ( argv[1], file);
-	printf ("%s", file);
-	free ( file);
-	return 0;
-}
 #endif
 
 int main ( int argc, char ** argv)	{

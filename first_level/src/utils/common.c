@@ -10,4 +10,9 @@ void print_usage ( const char * s, int ex_code)	{
 void check_args ( int argc, char ** argv, const char * usage)	{
 	if ( argc == 1)						print_usage ( usage, 1);
 	if ( !strcmp ( argv[1], "--help"))	print_usage ( usage, 0);
+
+#ifdef LONG_WORD
+	if ( argc < 3)						print_usage ( usage, 1);
+#endif
+
 }
